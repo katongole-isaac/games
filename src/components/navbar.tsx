@@ -1,13 +1,15 @@
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+import ColorModeSwitch from "./colorModeSwitch";
 
 const Navbar = () => {
   return (
-    <Flex  bg="#fafafa" paddingX="20px" width="100%" height="100%" alignItems="center" >
-        <Box>
-            <Text> Logo </Text>
-        </Box>
-    </Flex>
-  )
-}
+    <HStack justifyContent="space-between" paddingX="10px">
+      <Box>
+        <Text> Logo </Text>
+      </Box>
+      <ColorModeSwitch />
+    </HStack>
+  );
+};
 
-export default Navbar
+export default Navbar;
