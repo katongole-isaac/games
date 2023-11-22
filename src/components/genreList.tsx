@@ -1,13 +1,37 @@
+import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
+import getCroppedImage from "../services/imageUrl";
+import GenreListSkeleton from "./genreListSkeleton";
 
 const Genres = () => {
-  const { data } = useGenres();
+  const { data, isLoading } = useGenres();
+
+  const numberOfSkeletons = 12;
+
   return (
-    <ul>
+    <List>
+      {isLoading &&
+        Array(numberOfSkeletons)
+          .fill(null)
+          .map((_, index) => (
+            <ListItem key={index} paddingY={1.5} >
+              <GenreListSkeleton />
+            </ListItem>
+          ))}
+          
       {data?.map((genre) => (
-        <li key={genre.id}> {genre.name} </li>
+        <ListItem key={genre.id} paddingY={1.5}>
+          <HStack>
+            <Image
+              boxSize="32px"
+              borderRadius={10}
+              src={getCroppedImage(genre.image_background)}
+            />
+            <Text fontSize="lg"> {genre.name} </Text>
+          </HStack>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   );
 };
 
