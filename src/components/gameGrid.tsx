@@ -17,9 +17,10 @@ const GameGrid = ({ gameQuery } :Props) => {
 
   const numberOfSkeletons = 12;
 
+  if(error) return <Text> {error.message} </Text>
+
   return (
     <>
-      {error && <Text> {error.message} </Text>}
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
         paddingX="10px"
