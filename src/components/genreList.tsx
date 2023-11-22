@@ -9,9 +9,11 @@ interface Props {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data, isLoading } = useGenres();
+  const { data, isLoading, error } = useGenres();
 
   const numberOfSkeletons = 12;
+
+  if(error) return null;
 
   return (
     <List>
