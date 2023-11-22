@@ -4,8 +4,6 @@ import useGames from "../hooks/useGames";
 import GameCard from "./gameCard";
 import GameCardSkeleton from "./gameCardSkeleton";
 import GameCardContainer from "./gameCardContainer";
-import { Genre } from "../hooks/useGenres";
-import { Platform } from "../hooks/usePlatforms";
 import { GameQuery } from "../App";
 
 
